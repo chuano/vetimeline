@@ -7,8 +7,8 @@ import java.util.UUID;
 @Entity
 public class Organization {
     @Id
-    private UUID id;
-    private String name;
+    private final UUID id;
+    private final String name;
 
     public Organization(UUID id, String name) {
         this.id = id;

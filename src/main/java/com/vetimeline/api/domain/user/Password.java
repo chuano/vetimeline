@@ -2,7 +2,6 @@ package com.vetimeline.api.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.util.Objects;
 
 @Embeddable
 public class Password {
@@ -18,9 +17,5 @@ public class Password {
 
     public String getValue() {
         return value;
-    }
-
-    public Boolean match(String password) {
-        return Objects.equals(value, password);
     }
 }

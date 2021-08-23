@@ -1,5 +1,7 @@
-package com.vetimeline.api.application.user.createToken;
+package com.vetimeline.api.application.auth.createToken;
 
+import com.vetimeline.api.domain.auth.JwtManager;
+import com.vetimeline.api.domain.auth.JwtPayload;
 import com.vetimeline.api.domain.shared.EmailAddress;
 import com.vetimeline.api.domain.auth.PasswordEncoder;
 import com.vetimeline.api.domain.shared.Unauthorized;
@@ -10,10 +12,12 @@ import com.vetimeline.api.domain.user.UserRepository;
 public class CreateTokenHandler {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtManager jwtManager;
 
-    public CreateTokenHandler(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public CreateTokenHandler(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtManager jwtManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtManager = jwtManager;
     }
 
     public CreateTokenResponse execute(CreateTokenCommand command) throws UserNotFound, Unauthorized {
@@ -22,6 +26,7 @@ public class CreateTokenHandler {
             throw new Unauthorized();
         }
 
-        return new CreateTokenResponse("");
+        JwtPayload payload = new JwtPayload(user.getId().toString());
+        return new CreateTokenResponse(jwtManager.encode(payload));
     }
 }

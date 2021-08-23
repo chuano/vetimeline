@@ -3,9 +3,9 @@ package com.vetimeline.api.domain.shared;
 import java.util.List;
 
 public class ListResponse<T> {
-    private List<T> data;
-    private Integer page;
-    private Integer limit;
+    private final List<T> data;
+    private final Integer page;
+    private final Integer limit;
 
     public ListResponse(List<T> data, Integer page, Integer limit) {
         this.data = data;

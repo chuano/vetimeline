@@ -11,12 +11,12 @@ public class PasswordEncoderImpl implements PasswordEncoder {
     @Override
     public String encode(String clearPassword) {
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        return argon2.hash(3, 1024, 3, clearPassword);
+        return argon2.hash(3, 1024, 3, clearPassword.getBytes());
     }
 
     @Override
     public Boolean verify(Password password, String clearPassword) {
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        return argon2.verify(password.getValue(), clearPassword);
+        return argon2.verify(password.getValue(), clearPassword.getBytes());
     }
 }

@@ -1,8 +1,8 @@
 package com.vetimeline.api.application.user.getUsers;
 
 public class GetUsersCommand {
-    private Integer page;
-    private Integer limit;
+    private final Integer page;
+    private final Integer limit;
 
     public GetUsersCommand(Integer page, Integer limit) {
         this.page = page;

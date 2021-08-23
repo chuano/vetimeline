@@ -1,16 +1,15 @@
 package com.vetimeline.api.application.user;
 
-import com.vetimeline.api.domain.user.CompleteName;
 import com.vetimeline.api.domain.user.User;
 
 public class UserDTO {
-    public String id;
-    public String firstName;
-    public String firstSurname;
-    public String secondSurname;
-    public String email;
-    public String organization;
-    public String status;
+    private final String id;
+    private final String firstName;
+    private final String firstSurname;
+    private final String secondSurname;
+    private final String email;
+    private final String organization;
+    private final String status;
 
     public UserDTO(String id, String firstName, String firstSurname, String secondSurname, String email,
                    String organization, String status) {
@@ -33,5 +32,33 @@ public class UserDTO {
                 user.getOrganization().toString(),
                 user.getStatus().toString()
         );
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getFirstSurname() {
+        return firstSurname;
+    }
+
+    public String getSecondSurname() {
+        return secondSurname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }
