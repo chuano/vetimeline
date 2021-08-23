@@ -1,13 +1,11 @@
 package com.vetimeline.api.domain.user;
 
-import com.vetimeline.api.domain.shared.CompleteName;
 import com.vetimeline.api.domain.shared.EmailAddress;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Objects;
 import java.util.UUID;
 
 @Entity

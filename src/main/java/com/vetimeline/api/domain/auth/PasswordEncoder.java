@@ -1,4 +1,4 @@
-package com.vetimeline.api.domain.shared;
+package com.vetimeline.api.domain.auth;
 
 import com.vetimeline.api.domain.user.Password;
 

@@ -1,4 +1,4 @@
-package com.vetimeline.api.domain.shared;
+package com.vetimeline.api.domain.user;
 
 import javax.persistence.Embeddable;
 

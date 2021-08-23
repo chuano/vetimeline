@@ -1,12 +1,10 @@
-package com.vetimeline.api.infrastructure.user.entryPoint;
+package com.vetimeline.api.infrastructure.auth.entryPoint;
 
 import com.vetimeline.api.application.user.createToken.CreateTokenCommand;
 import com.vetimeline.api.application.user.createToken.CreateTokenHandler;
 import com.vetimeline.api.application.user.createToken.CreateTokenResponse;
-import com.vetimeline.api.domain.shared.EmailAddress;
-import com.vetimeline.api.domain.shared.PasswordEncoder;
+import com.vetimeline.api.domain.auth.PasswordEncoder;
 import com.vetimeline.api.domain.shared.Unauthorized;
-import com.vetimeline.api.domain.user.User;
 import com.vetimeline.api.domain.user.UserNotFound;
 import com.vetimeline.api.domain.user.UserRepository;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +22,7 @@ public class CreateTokenController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "users/token")
+    @RequestMapping(method = RequestMethod.POST, value = "auth/token")
     public CreateTokenResponse createToken(
             @RequestBody() CreateTokenCommand command
     ) throws UserNotFound, Unauthorized {
