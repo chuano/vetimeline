@@ -49,4 +49,10 @@ public class UserRepositoryImpl implements UserRepository {
             throw new UserNotFound();
         }
     }
+
+    @Override
+    public void save(User user) {
+        entityManager.persist(user);
+        entityManager.flush();
+    }
 }

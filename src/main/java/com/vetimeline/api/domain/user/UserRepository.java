@@ -9,4 +9,5 @@ public interface UserRepository {
     List<User> findAll(Integer page, Integer limit);
     User find(UUID id) throws UserNotFound;
     User findByEmail(EmailAddress email) throws UserNotFound;
+    void save(User user);
 }
