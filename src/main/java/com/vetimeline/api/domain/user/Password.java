@@ -9,6 +9,9 @@ public class Password {
     @Column(name = "password")
     private String value;
 
+    private Password() {
+    }
+
     public Password(String value) {
         this.value = value;
     }
@@ -17,7 +20,7 @@ public class Password {
         return value;
     }
 
-   public Boolean match(String password) {
+    public Boolean match(String password) {
         return Objects.equals(value, password);
-   }
+    }
 }
