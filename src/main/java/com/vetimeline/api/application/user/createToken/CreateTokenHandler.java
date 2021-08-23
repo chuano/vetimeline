@@ -23,7 +23,7 @@ public class CreateTokenHandler {
         Logger logger = LoggerFactory.getLogger("9u89");
         logger.error(command.getEmail());
         logger.error(user.getName().getFirstName());
-        if (!passwordEncoder.match(user.getPassword(), command.getPassword())) {
+        if (!passwordEncoder.verify(user.getPassword(), command.getPassword())) {
             throw new Unauthorized();
         }
 
