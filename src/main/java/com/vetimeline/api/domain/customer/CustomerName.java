@@ -1,6 +1,7 @@
 package com.vetimeline.api.domain.customer;
 
 import javax.persistence.Embeddable;
+import java.util.Objects;
 
 @Embeddable
 public class CustomerName {
@@ -11,15 +12,9 @@ public class CustomerName {
     private CustomerName() {
     }
 
-    public CustomerName(String firstSurname) {
-        this.firstName = null;
-        this.firstSurname = firstSurname;
-        this.secondSurname = null;
-    }
-
     public CustomerName(String firstName, String firstSurname, String secondSurname) {
         this.firstName = firstName;
-        this.firstSurname = firstSurname;
+        this.firstSurname = Objects.requireNonNull(firstSurname, "First surname cannot be null");
         this.secondSurname = secondSurname;
     }
 
