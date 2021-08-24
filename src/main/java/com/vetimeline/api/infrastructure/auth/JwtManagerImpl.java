@@ -38,6 +38,6 @@ public class JwtManagerImpl implements JwtManager {
                 .setSigningKey(tokenSignature.getBytes())
                 .parseClaimsJws(token)
                 .getBody();
-        return new JwtPayload(claims.getId());
+        return new JwtPayload(claims.get("id").toString());
     }
 }

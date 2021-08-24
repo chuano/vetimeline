@@ -5,8 +5,8 @@ import com.vetimeline.api.application.auth.createToken.CreateTokenHandler;
 import com.vetimeline.api.application.auth.createToken.CreateTokenResponse;
 import com.vetimeline.api.domain.auth.JwtManager;
 import com.vetimeline.api.domain.auth.PasswordEncoder;
+import com.vetimeline.api.domain.shared.EntityNotFound;
 import com.vetimeline.api.domain.shared.Unauthorized;
-import com.vetimeline.api.domain.user.UserNotFound;
 import com.vetimeline.api.domain.user.UserRepository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,10 +29,10 @@ public class CreateTokenController {
         this.jwtManager = jwtManager;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "auth/token")
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/auth/tokens")
     public CreateTokenResponse createToken(
             @RequestBody() CreateTokenCommand command
-    ) throws UserNotFound, Unauthorized {
+    ) throws EntityNotFound, Unauthorized {
         CreateTokenHandler handler = new CreateTokenHandler(userRepository, passwordEncoder, jwtManager);
         return handler.execute(command);
     }

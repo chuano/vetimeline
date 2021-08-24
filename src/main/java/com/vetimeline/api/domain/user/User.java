@@ -1,6 +1,7 @@
 package com.vetimeline.api.domain.user;
 
 import com.vetimeline.api.domain.shared.EmailAddress;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,12 +12,14 @@ import java.util.UUID;
 @Entity
 public class User {
     @Id
+    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
     @Embedded
     private CompleteName name;
     @Embedded
     private EmailAddress email;
     @Column(name = "organization")
+    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID organization;
     @Embedded
     private Password password;

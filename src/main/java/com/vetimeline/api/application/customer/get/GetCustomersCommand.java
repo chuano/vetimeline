@@ -1,11 +1,11 @@
-package com.vetimeline.api.application.user.getUsers;
+package com.vetimeline.api.application.customer.get;
 
-public class GetUsersCommand {
+public class GetCustomersCommand {
     private final Integer page;
     private final Integer limit;
     private final String organization;
 
-    public GetUsersCommand(Integer page, Integer limit, String organization) {
+    public GetCustomersCommand(Integer page, Integer limit, String organization) {
         this.page = page;
         this.limit = limit;
         this.organization = organization;

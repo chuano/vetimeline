@@ -8,17 +8,15 @@ public class UserDTO {
     private final String firstSurname;
     private final String secondSurname;
     private final String email;
-    private final String organization;
     private final String status;
 
     public UserDTO(String id, String firstName, String firstSurname, String secondSurname, String email,
-                   String organization, String status) {
+                   String status) {
         this.id = id;
         this.firstName = firstName;
         this.firstSurname = firstSurname;
         this.secondSurname = secondSurname;
         this.email = email;
-        this.organization = organization;
         this.status = status;
     }
 
@@ -29,7 +27,6 @@ public class UserDTO {
                 user.getName().getFirstSurname(),
                 user.getName().getSecondSurname(),
                 user.getEmail().getValue(),
-                user.getOrganization().toString(),
                 user.getStatus().toString()
         );
     }
@@ -52,10 +49,6 @@ public class UserDTO {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getOrganization() {
-        return organization;
     }
 
     public String getStatus() {

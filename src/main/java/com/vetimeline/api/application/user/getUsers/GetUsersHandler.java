@@ -2,6 +2,9 @@ package com.vetimeline.api.application.user.getUsers;
 
 import com.vetimeline.api.domain.user.UserRepository;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 public class GetUsersHandler {
     private final UserRepository userRepository;
 
@@ -10,8 +13,10 @@ public class GetUsersHandler {
     }
 
     public GetUsersResponse execute(GetUsersCommand command) {
+        HashMap<String, Object> criteria = new HashMap<>();
+        criteria.put("organization", UUID.fromString(command.getOrganization()));
         return new GetUsersResponse(
-                userRepository.findAll(command.getPage(), command.getLimit()),
+                userRepository.findBy(criteria, command.getPage(), command.getLimit()),
                 command.getPage(),
                 command.getLimit()
         );
