@@ -33,7 +33,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 )
                 // Public routes
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/auth/token").permitAll()
+                .antMatchers(HttpMethod.POST, "/v1/auth/tokens").permitAll()
                 .antMatchers(HttpMethod.GET, "/init_db").permitAll()
                 // .antMatchers(HttpMethod.GET, "/newuser").permitAll()
                 // Other routes must be authenticated
