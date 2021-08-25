@@ -3,6 +3,7 @@ package com.vetimeline.api.infrastructure.user.entryPoint;
 import com.vetimeline.api.domain.auth.PasswordEncoder;
 import com.vetimeline.api.domain.customer.*;
 import com.vetimeline.api.domain.organization.Organization;
+import com.vetimeline.api.domain.organization.OrganizationName;
 import com.vetimeline.api.domain.organization.OrganizationRepository;
 import com.vetimeline.api.domain.pet.Pet;
 import com.vetimeline.api.domain.pet.PetName;
@@ -45,7 +46,7 @@ public class InitDatabaseController {
             return "ALREADY OK";
         }
 
-        Organization organization = new Organization(UUID.randomUUID(), "Testerinario");
+        Organization organization = new Organization(UUID.randomUUID(), new OrganizationName("Testerinario"));
         organizationRepository.save(organization);
 
         User user = new User(
