@@ -11,9 +11,11 @@ import java.util.UUID;
 public class Organization {
     @Id
     @Type(type = "org.hibernate.type.UUIDCharType")
-    private final UUID id;
+    private UUID id;
     @Embedded
-    private final OrganizationName name;
+    private OrganizationName name;
+
+    protected Organization() {}
 
     public Organization(UUID id, OrganizationName name) {
         this.id = id;

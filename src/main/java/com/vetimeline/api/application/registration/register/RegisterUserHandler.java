@@ -62,7 +62,6 @@ public class RegisterUserHandler {
         }
     }
 
-    // TODO NO VA ESTA MIERDA
     private void ensureDoesNotExistsOrganization(String organizationName) throws OrganizationAlreadyRegistered {
         HashMap<String, Object> criteria = new HashMap<>();
         criteria.put("name", new OrganizationName(organizationName));
