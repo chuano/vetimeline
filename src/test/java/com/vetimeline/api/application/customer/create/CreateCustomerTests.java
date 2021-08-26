@@ -9,7 +9,7 @@ import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class CreateCustomerTests {
