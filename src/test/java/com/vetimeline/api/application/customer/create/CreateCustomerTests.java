@@ -7,9 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class CreateCustomerTests {
@@ -21,13 +23,27 @@ public class CreateCustomerTests {
     }
 
     @Test
-    public void ShouldCreateCustomer() {
+    public void ShouldCreateCustomer() throws IdDocumentAlreadyExists {
+        when(customerRepository.findBy(any(), anyInt(), anyInt())).thenReturn(new ArrayList<>());
+
         CreateCustomerCommand command = getCreateCustomerCommand();
         CreateCustomerHandler handler = new CreateCustomerHandler(customerRepository);
         CreateCustomerResponse response = handler.execute(command);
 
         assertTrue(new ReflectionEquals(getExpected()).matches(response));
         verify(customerRepository).save(any(Customer.class));
+    }
+
+    @Test
+    public void ShouldThrowIdDocumentAlreadyExists() {
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(createCustomer());
+        when(customerRepository.findBy(any(), anyInt(), anyInt())).thenReturn(customers);
+
+        CreateCustomerCommand command = getCreateCustomerCommand();
+        CreateCustomerHandler handler = new CreateCustomerHandler(customerRepository);
+
+        assertThrows(IdDocumentAlreadyExists.class, () -> handler.execute(command));
     }
 
     private CreateCustomerCommand getCreateCustomerCommand() {
