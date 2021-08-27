@@ -4,6 +4,7 @@ import com.vetimeline.api.domain.customer.idDocumentFormatter.IdDocumentFormatte
 import com.vetimeline.api.domain.customer.idDocumentFormatter.IdDocumentFormatterFactory;
 
 import javax.persistence.Column;
+import java.util.Objects;
 
 public class IdDocument {
     @Column(name = "id_document")
@@ -26,5 +27,17 @@ public class IdDocument {
         return idDocumentNumber
                 .replace(" ", "")
                 .replace("-", "");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        IdDocument that = (IdDocument) o;
+        return Objects.equals(that.getValue(), this.getValue());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
