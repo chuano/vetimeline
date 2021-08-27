@@ -50,6 +50,15 @@ public class Customer {
         this.organization = organization;
     }
 
+    public void update(CustomerName name, IdDocument idDocument, PhoneNumber phone, EmailAddress email,
+                       CustomerAddress address) {
+        this.name = name;
+        this.idDocument = idDocument;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+    }
+
     public UUID getId() {
         return id;
     }
