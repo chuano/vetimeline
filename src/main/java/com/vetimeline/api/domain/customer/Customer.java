@@ -33,6 +33,8 @@ public class Customer {
     @Embedded
     private CustomerAddress address;
 
+    private CustomerStatus status;
+
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID organization;
 
@@ -40,13 +42,14 @@ public class Customer {
     }
 
     public Customer(UUID id, CustomerName name, IdDocument idDocument, PhoneNumber phone, EmailAddress email,
-                    CustomerAddress address, UUID organization) {
+                    CustomerAddress address, CustomerStatus status, UUID organization) {
         this.id = id;
         this.name = name;
         this.idDocument = idDocument;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.status = status;
         this.organization = organization;
     }
 
@@ -57,6 +60,14 @@ public class Customer {
         this.phone = phone;
         this.email = email;
         this.address = address;
+    }
+
+    public void deacticate() {
+        status = CustomerStatus.INACTIVE;
+    }
+
+    public void activate() {
+        status = CustomerStatus.ACTIVE;
     }
 
     public UUID getId() {
@@ -81,6 +92,10 @@ public class Customer {
 
     public CustomerAddress getAddress() {
         return address;
+    }
+
+    public CustomerStatus getStatus() {
+        return status;
     }
 
     public UUID getOrganization() {

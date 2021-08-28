@@ -1,4 +1,4 @@
-package com.vetimeline.api.application.customer.upate;
+package com.vetimeline.api.application.customer.update;
 
 import com.vetimeline.api.domain.customer.*;
 import com.vetimeline.api.domain.shared.EmailAddress;

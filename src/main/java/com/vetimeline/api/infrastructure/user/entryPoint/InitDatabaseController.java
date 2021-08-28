@@ -65,6 +65,7 @@ public class InitDatabaseController {
                 new PhoneNumber("666666666"),
                 new EmailAddress("user@domain.com"),
                 new CustomerAddress("Xàbia, 1", "Monóvar", "03640"),
+                CustomerStatus.ACTIVE,
                 organization.getId()
         );
         customerRepository.save(customer);

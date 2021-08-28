@@ -12,9 +12,10 @@ public class CustomerDTO {
     private final String address;
     private final String city;
     private final String zipCode;
+    private final String status;
 
     public CustomerDTO(String id, String firstName, String firstSurname, String secondSurname, String idDocument,
-                       String phone, String address, String city, String zipCode) {
+                       String phone, String address, String city, String zipCode, String status) {
         this.id = id;
         this.firstName = firstName;
         this.firstSurname = firstSurname;
@@ -24,6 +25,7 @@ public class CustomerDTO {
         this.address = address;
         this.city = city;
         this.zipCode = zipCode;
+        this.status = status;
     }
 
     public static CustomerDTO fromEntity(Customer customer) {
@@ -36,7 +38,8 @@ public class CustomerDTO {
                 null != customer.getPhone() ? customer.getPhone().getValue() : null,
                 null != customer.getAddress() ? customer.getAddress().getAddress() : null,
                 null != customer.getAddress() ? customer.getAddress().getCity() : null,
-                null != customer.getAddress() ? customer.getAddress().getZipCode() : null
+                null != customer.getAddress() ? customer.getAddress().getZipCode() : null,
+                customer.getStatus().toString()
         );
     }
 
@@ -74,5 +77,9 @@ public class CustomerDTO {
 
     public String getZipCode() {
         return zipCode;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

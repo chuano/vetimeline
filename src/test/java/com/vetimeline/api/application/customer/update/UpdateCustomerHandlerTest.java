@@ -1,4 +1,4 @@
-package com.vetimeline.api.application.customer.upate;
+package com.vetimeline.api.application.customer.update;
 
 import com.vetimeline.api.domain.customer.*;
 import com.vetimeline.api.domain.shared.EmailAddress;
@@ -89,6 +89,7 @@ class UpdateCustomerHandlerTest {
                 new PhoneNumber("666666666"),
                 new EmailAddress("user@domain.com"),
                 new CustomerAddress("address", "city", "00000"),
+                CustomerStatus.ACTIVE,
                 UUID.fromString(organization)
         );
     }
@@ -101,6 +102,7 @@ class UpdateCustomerHandlerTest {
                 new PhoneNumber("666666662"),
                 new EmailAddress("user@domain2.com"),
                 new CustomerAddress("address2", "city2", "00002"),
+                CustomerStatus.ACTIVE,
                 UUID.fromString("7680ebe0-fc57-456e-9c60-f8307cf01ad7")
         );
     }

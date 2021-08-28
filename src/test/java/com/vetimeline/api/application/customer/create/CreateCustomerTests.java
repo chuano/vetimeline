@@ -74,6 +74,7 @@ public class CreateCustomerTests {
                 new PhoneNumber("666666666"),
                 new EmailAddress("user@domain.com"),
                 new CustomerAddress("address", "city", "00000"),
+                CustomerStatus.ACTIVE,
                 UUID.fromString("7680ebe0-fc57-456e-9c60-f8307cf01ad7")
         );
     }

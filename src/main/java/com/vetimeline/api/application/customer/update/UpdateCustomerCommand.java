@@ -1,4 +1,4 @@
-package com.vetimeline.api.application.customer.upate;
+package com.vetimeline.api.application.customer.update;
 
 public class UpdateCustomerCommand {
     private final String id;

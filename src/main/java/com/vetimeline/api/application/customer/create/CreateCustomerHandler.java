@@ -40,6 +40,7 @@ public class CreateCustomerHandler {
                 new PhoneNumber(command.getPhone()),
                 new EmailAddress(command.getEmail()),
                 new CustomerAddress(command.getAddress(), command.getCity(), command.getZipCode()),
+                CustomerStatus.ACTIVE,
                 UUID.fromString(command.getOrganization())
         );
     }

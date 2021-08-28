@@ -1,8 +1,8 @@
 package com.vetimeline.api.infrastructure.customer.entryPoint;
 
-import com.vetimeline.api.application.customer.upate.UpdateCustomerCommand;
-import com.vetimeline.api.application.customer.upate.UpdateCustomerHandler;
-import com.vetimeline.api.application.customer.upate.UpdateCustomerResponse;
+import com.vetimeline.api.application.customer.update.UpdateCustomerCommand;
+import com.vetimeline.api.application.customer.update.UpdateCustomerHandler;
+import com.vetimeline.api.application.customer.update.UpdateCustomerResponse;
 import com.vetimeline.api.domain.customer.CustomerNotFound;
 import com.vetimeline.api.domain.customer.CustomerRepository;
 import com.vetimeline.api.domain.customer.IdDocumentAlreadyExists;

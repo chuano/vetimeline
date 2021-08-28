@@ -1,4 +1,4 @@
-package com.vetimeline.api.application.customer.upate;
+package com.vetimeline.api.application.customer.update;
 
 import com.vetimeline.api.application.customer.CustomerDTO;
 import com.vetimeline.api.domain.customer.Customer;
@@ -14,7 +14,8 @@ public class UpdateCustomerResponse extends CustomerDTO {
                 null != customer.getPhone() ? customer.getPhone().getValue() : null,
                 null != customer.getAddress() ? customer.getAddress().getAddress() : null,
                 null != customer.getAddress() ? customer.getAddress().getCity() : null,
-                null != customer.getAddress() ? customer.getAddress().getZipCode() : null
+                null != customer.getAddress() ? customer.getAddress().getZipCode() : null,
+                customer.getStatus().toString()
         );
     }
 }

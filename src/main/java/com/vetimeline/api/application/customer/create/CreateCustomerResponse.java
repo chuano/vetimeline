@@ -14,7 +14,8 @@ public class CreateCustomerResponse extends CustomerDTO {
                 null != customer.getPhone() ? customer.getPhone().getValue() : null,
                 null != customer.getAddress() ? customer.getAddress().getAddress() : null,
                 null != customer.getAddress() ? customer.getAddress().getCity() : null,
-                null != customer.getAddress() ? customer.getAddress().getZipCode() : null
+                null != customer.getAddress() ? customer.getAddress().getZipCode() : null,
+                customer.getStatus().toString()
         );
     }
 }
