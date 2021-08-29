@@ -8,22 +8,20 @@ import com.vetimeline.api.domain.shared.EntityNotFound;
 import com.vetimeline.api.domain.shared.Forbidden;
 import com.vetimeline.api.domain.user.User;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class ActivateCustomerController {
+public class UpdateStatusCustomerController {
     private final CustomerRepository customerRepository;
 
-    public ActivateCustomerController(CustomerRepository customerRepository) {
+    public UpdateStatusCustomerController(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
     @RequestMapping(value = "/v1/customers/{id}/status", method = RequestMethod.PUT)
     public ActivateCustomerResponse activate(
             @PathVariable String id,
+            @RequestBody() UpdateStatusCustomerRequest request,
             Authentication authentication
     ) throws EntityNotFound, Forbidden {
         User user = (User) authentication.getCredentials();

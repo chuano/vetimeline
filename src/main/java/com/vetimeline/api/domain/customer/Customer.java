@@ -62,7 +62,7 @@ public class Customer {
         this.address = address;
     }
 
-    public void deacticate() {
+    public void deactivate() {
         status = CustomerStatus.INACTIVE;
     }
 
