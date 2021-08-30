@@ -1,8 +1,8 @@
 package com.vetimeline.api.infrastructure.customer.entryPoint;
 
-import com.vetimeline.api.application.customer.status.ActivateCustomerCommand;
-import com.vetimeline.api.application.customer.status.ActivateCustomerHandler;
-import com.vetimeline.api.application.customer.status.ActivateCustomerResponse;
+import com.vetimeline.api.application.customer.status.UpdatCustomerStatusHandler;
+import com.vetimeline.api.application.customer.status.UpdateCustomerStatusCommand;
+import com.vetimeline.api.application.customer.status.UpdateCustomerStatusResponse;
 import com.vetimeline.api.domain.customer.CustomerRepository;
 import com.vetimeline.api.domain.shared.EntityNotFound;
 import com.vetimeline.api.domain.shared.Forbidden;
@@ -19,14 +19,18 @@ public class UpdateStatusCustomerController {
     }
 
     @RequestMapping(value = "/v1/customers/{id}/status", method = RequestMethod.PUT)
-    public ActivateCustomerResponse activate(
+    public UpdateCustomerStatusResponse activate(
             @PathVariable String id,
             @RequestBody() UpdateStatusCustomerRequest request,
             Authentication authentication
     ) throws EntityNotFound, Forbidden {
         User user = (User) authentication.getCredentials();
-        ActivateCustomerCommand command = new ActivateCustomerCommand(id, user.getOrganization().toString());
-        ActivateCustomerHandler handler = new ActivateCustomerHandler(customerRepository);
+        UpdateCustomerStatusCommand command = new UpdateCustomerStatusCommand(
+                id,
+                request.status,
+                user.getOrganization().toString()
+        );
+        UpdatCustomerStatusHandler handler = new UpdatCustomerStatusHandler(customerRepository);
         return handler.execute(command);
     }
 }

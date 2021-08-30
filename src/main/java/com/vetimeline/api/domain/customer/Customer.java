@@ -62,12 +62,8 @@ public class Customer {
         this.address = address;
     }
 
-    public void deactivate() {
-        status = CustomerStatus.INACTIVE;
-    }
-
-    public void activate() {
-        status = CustomerStatus.ACTIVE;
+    public void updateStatus(CustomerStatus status) {
+        this.status = status;
     }
 
     public UUID getId() {

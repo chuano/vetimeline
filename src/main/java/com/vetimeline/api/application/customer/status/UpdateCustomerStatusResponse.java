@@ -3,8 +3,8 @@ package com.vetimeline.api.application.customer.status;
 import com.vetimeline.api.application.customer.CustomerDTO;
 import com.vetimeline.api.domain.customer.Customer;
 
-public class DeactivateCustomerResponse extends CustomerDTO {
-    public DeactivateCustomerResponse(Customer customer) {
+public class UpdateCustomerStatusResponse extends CustomerDTO {
+    public UpdateCustomerStatusResponse(Customer customer) {
         super(
                 customer.getId().toString(),
                 customer.getName().getFirstName(),
